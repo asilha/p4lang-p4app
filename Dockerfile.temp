@@ -1,5 +1,0 @@
-FROM asilha/p4app:working
-
-RUN apt-get install -y tcpreplay
-
-RUN ln -s /usr/bin/tcpdump /usr/sbin/tcpdump

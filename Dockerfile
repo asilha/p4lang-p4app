@@ -1,4 +1,4 @@
-FROM asilha/p4c:working
+FROM asilha/p4c:latest
 
 # Install dependencies and some useful tools.
 ENV NET_TOOLS iputils-arping \
@@ -9,6 +9,7 @@ ENV NET_TOOLS iputils-arping \
               python-ipaddr \
               python-scapy \
               tcpdump \
+              tcpreplay \
               traceroute \
               tshark
 ENV MININET_DEPS automake \
@@ -41,7 +42,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends $NET_TOOLS $MININET_DEPS
 
 # Fix to get tcpdump working
-RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
+RUN ln /usr/sbin/tcpdump /usr/bin/tcpdump
 
 # Install mininet.
 COPY docker/third-party/mininet /third-party/mininet

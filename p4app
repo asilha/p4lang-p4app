@@ -13,9 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# P4APP_IMAGE=${P4APP_IMAGE:-p4lang/p4app:latest}  # As of 2021.09.03, this refers to ID 44a5fcde5578. 
-# P4APP_IMAGE=${P4APP_IMAGE:-asilha/p4app:working} # As of 2021.09.03, this refers to ID 44a5fcde5578. 
-P4APP_IMAGE=${P4APP_IMAGE:-asilha/p4app:temp}
+# P4APP_IMAGE=${P4APP_IMAGE:-p4lang/p4app:latest}  # On 2021.09.03: ID 44a5fcde5578. 
+# P4APP_IMAGE=${P4APP_IMAGE:-asilha/p4app:working} # On 2021.09.03: ID 44a5fcde5578. 
+# P4APP_IMAGE=${P4APP_IMAGE:-asilha/p4app:latest}  # On 2021.12.09: ID 4acef208a74b (Built from Dockerfile.temp)
+P4APP_IMAGE=${P4APP_IMAGE:-asilha/p4app:latest}
+
 P4APP_CONTAINER_ARGS=${P4APP_CONTAINER_ARGS:-""}
 
 
