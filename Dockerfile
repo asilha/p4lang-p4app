@@ -1,6 +1,4 @@
-FROM p4lang/p4c:latest
-MAINTAINER Seth Fowler <seth@barefootnetworks.com>
-MAINTAINER Robert Soule <robert.soule@barefootnetworks.com>
+FROM asilha/p4c:working
 
 # Install dependencies and some useful tools.
 ENV NET_TOOLS iputils-arping \
@@ -33,12 +31,13 @@ ENV MININET_DEPS automake \
                  pyflakes \
                  pylint \
                  python-pexpect \
-                 python-setuptools
+                 python-setuptools 
 
 # Ignore questions when installing with apt-get:
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
+    apt-get install -o Dpkg::Options::="--force-confold" -y iproute && \
     apt-get install -y --no-install-recommends $NET_TOOLS $MININET_DEPS
 
 # Fix to get tcpdump working
